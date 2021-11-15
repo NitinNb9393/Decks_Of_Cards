@@ -18,7 +18,7 @@ public class CardsPlay {
 
 		String[] suit = { "Clubs", "Diamonds", "Hearts", "Spades" };
 		String[] rank = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
-
+		// get combination
 		for (int i = 0; i < suit.length; i++) {
 			for (int j = 0; j < rank.length; j++) {
 
@@ -77,7 +77,7 @@ public class CardsPlay {
 	public void distributeCards() {
 		for (int i = 1; i <= 9; i++) {
 			for (Player playerObj : playerList) {
-
+				// adding each card in cardList of each player
 				playerObj.setCardList(getCards());
 				shuffleCards();
 			}
@@ -91,6 +91,26 @@ public class CardsPlay {
 			System.out.print("\ncards of " + playerObj.name + " : ");
 			playerObj.getCardList();
 			System.out.print("\n ");
+		}
+	}
+
+	public void setPlayerSequence() {
+
+		Scanner sc = new Scanner(System.in);
+		int PlaylistSize = playerList.size();
+
+		for (int i = 0; i < PlaylistSize; i++) {
+
+			Player temp = playerList.get(i);
+			System.out.print("\n Set player position for (staring from 0) " + temp.name + " : ");
+			int newPosition = sc.nextInt();
+			if (newPosition > PlaylistSize || newPosition < 0) {
+				System.out.print("\n Invalid position !!");
+				return;
+			}
+
+			playerList.set(i, playerList.get(newPosition));
+			playerList.set(newPosition, temp);
 		}
 	}
 }
