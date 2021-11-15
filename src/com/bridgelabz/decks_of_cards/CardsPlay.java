@@ -37,7 +37,6 @@ public class CardsPlay {
 	public void addPlayer() {
 
 		Scanner sc = new Scanner(System.in);
-
 		if (playerCount >= 2 && playerCount <= 4) {
 			for (int i = 1; i <= playerCount; i++) {
 				System.out.print(" Enter player " + i + " name : ");
@@ -45,6 +44,8 @@ public class CardsPlay {
 				Player play = new Player(name);
 				playerList.add(play);
 			}
+		} else {
+			System.out.println("Invalid Input ");
 		}
 	}
 
@@ -64,7 +65,6 @@ public class CardsPlay {
 		}
 	}
 
-	// get each card from cardsArr
 	public String getCards() {
 
 		int min = 0;
@@ -90,11 +90,14 @@ public class CardsPlay {
 
 		for (Player playerObj : playerList) {
 
-			System.out.print("\ncards of " + playerObj.name + " : ");
+			System.out.print("\n\nCards of " + playerObj.name + " : ");
 			playerObj.getCardList();
 			System.out.print("\n ");
-			System.out.print("\nunique cards: ");
+			System.out.print("\nUnique cards: \n");
 			playerObj.getUniqueCards();
+
+			System.out.print("\nDisplay cards based on Rank : ");
+			playerObj.displayCards();
 		}
 	}
 
