@@ -6,6 +6,7 @@ public class DecksOfCards {
 		System.out.print("Welcome to Decks of Cards");
 		CardsPlay cardsPlay = new CardsPlay();
 		cardsPlay.generateUniqueCards();
+		cardsPlay.addPlayer();
 	}
 
 }
